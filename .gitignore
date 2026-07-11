@@ -1,0 +1,33 @@
+# Binaries
+redirectlens
+redirectlens.exe
+*.exe
+
+# Build artifacts
+/dist/
+/build/
+
+# Test coverage
+*.out
+*.coverprofile
+coverage.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.log
+
+# Vendor (if vendoring)
+vendor/
+
+# SARIF output (generated)
+results.sarif
