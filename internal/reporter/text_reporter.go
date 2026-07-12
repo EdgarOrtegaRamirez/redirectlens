@@ -72,15 +72,15 @@ type JSONReporter struct{}
 func (r *JSONReporter) Report(result *models.ChainResult) error {
 	// Add a summary field
 	output := struct {
-		URL               string             `json:"url"`
-		IsSecure          bool               `json:"is_secure"`
-		IsLoop            bool               `json:"is_loop"`
-		Hops              []models.Hop       `json:"hops"`
-		Issues            []models.Issue     `json:"issues"`
-		TotalDuration     string             `json:"total_duration"`
-		FinalStatusCode   int                `json:"final_status_code"`
-		FinalURL          string             `json:"final_url"`
-		HasSecurityIssues bool               `json:"has_security_issues"`
+		URL               string         `json:"url"`
+		IsSecure          bool           `json:"is_secure"`
+		IsLoop            bool           `json:"is_loop"`
+		Hops              []models.Hop   `json:"hops"`
+		Issues            []models.Issue `json:"issues"`
+		TotalDuration     string         `json:"total_duration"`
+		FinalStatusCode   int            `json:"final_status_code"`
+		FinalURL          string         `json:"final_url"`
+		HasSecurityIssues bool           `json:"has_security_issues"`
 	}{
 		URL:               result.URL,
 		IsSecure:          checkerIsSecure(result.FinalURL),

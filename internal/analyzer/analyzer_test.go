@@ -9,7 +9,7 @@ import (
 
 func TestAnalyzeChain_NoIssues(t *testing.T) {
 	result := &models.ChainResult{
-		URL:     "https://example.com",
+		URL: "https://example.com",
 		Hops: []models.Hop{
 			{Index: 0, URL: "https://example.com", StatusCode: 200, Duration: time.Millisecond},
 		},

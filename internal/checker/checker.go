@@ -11,9 +11,9 @@ import (
 
 // Checker follows HTTP redirect chains and collects hop details.
 type Checker struct {
-	client    *http.Client
-	maxHops   int
-	timeout   time.Duration
+	client  *http.Client
+	maxHops int
+	timeout time.Duration
 }
 
 // NewChecker creates a new Checker with the given config.
@@ -67,11 +67,11 @@ func (c *Checker) FollowChain(url string) (*models.ChainResult, error) {
 
 		if err != nil {
 			hops = append(hops, models.Hop{
-				Index:  i,
-				URL:    currentURL,
+				Index:      i,
+				URL:        currentURL,
 				StatusCode: finalStatusCode,
-				Duration: hopDuration,
-				Error:  err.Error(),
+				Duration:   hopDuration,
+				Error:      err.Error(),
 			})
 			result.Hops = hops
 			result.TotalDuration = totalDuration
@@ -118,11 +118,11 @@ func (c *Checker) FollowChain(url string) (*models.ChainResult, error) {
 		if visitedURLs[nextURL] {
 			isLoop = true
 			hops = append(hops, models.Hop{
-				Index:    i + 1,
-				URL:      nextURL,
+				Index:      i + 1,
+				URL:        nextURL,
 				StatusCode: 0,
-				Duration: 0,
-				Error:    "redirect loop detected",
+				Duration:   0,
+				Error:      "redirect loop detected",
 			})
 			result.Hops = hops
 			result.TotalDuration = totalDuration
